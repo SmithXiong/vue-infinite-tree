@@ -21,7 +21,7 @@ class HttpRequest {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        //
+        'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IjMzNTQxMCIsImhvc3QiOiIxNzIuMjAuMzYuNTMiLCJyZW1lbWJlck1lIjpmYWxzZSwiZXhwIjoxNTQ5ODcyMzg2LCJ1c2VySWQiOiIyYzkxODQ4YzY4NTE4N2M3MDE2ODU1NjQ1OTFiMDAxNCIsIlNFQ1JFVCI6ImEzOWE3NGFmZTcxMjQwYTU5NDJhZjA5NTQ2YjRmOGJkIiwidXNlcm5hbWUiOiIwMjU1In0.g19s0H5hi746E4PVHP7nKyiECCGxsK4AIOOymBFjNjNT_h5d4ej9E7ndUqvAnYqOdvF4Ym6nfz11Y3s0fV-qQw'
       }
     }
     return config
