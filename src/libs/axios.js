@@ -1,16 +1,4 @@
 import axios from 'axios'
-import store from '@/store'
-// import { Spin } from 'iview'
-const addErrorLog = errorInfo => {
-  const { statusText, status, request: { responseURL } } = errorInfo
-  let info = {
-    type: 'ajax',
-    code: status,
-    mes: statusText,
-    url: responseURL
-  }
-  if (!responseURL.includes('save_error_logger')) store.dispatch('addErrorLog', info)
-}
 
 class HttpRequest {
   constructor (baseUrl = baseURL) {
@@ -21,7 +9,7 @@ class HttpRequest {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IjMzNTQxMCIsImhvc3QiOiIxNzIuMjAuMzYuNTMiLCJyZW1lbWJlck1lIjpmYWxzZSwiZXhwIjoxNTQ5ODcyMzg2LCJ1c2VySWQiOiIyYzkxODQ4YzY4NTE4N2M3MDE2ODU1NjQ1OTFiMDAxNCIsIlNFQ1JFVCI6ImEzOWE3NGFmZTcxMjQwYTU5NDJhZjA5NTQ2YjRmOGJkIiwidXNlcm5hbWUiOiIwMjU1In0.g19s0H5hi746E4PVHP7nKyiECCGxsK4AIOOymBFjNjNT_h5d4ej9E7ndUqvAnYqOdvF4Ym6nfz11Y3s0fV-qQw'
+        'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IjEyMzQ1NiIsImhvc3QiOiIxNzIuMjAuMzYuNTMiLCJyZW1lbWJlck1lIjpmYWxzZSwiZXhwIjoxNTUwNDU0ODIxLCJ1c2VySWQiOiIyYzkxZDU5MzY0OGQ3OTU1MDE2NDkxNmE1MzI5MDAwMCIsIlNFQ1JFVCI6IjczZDQyOTBlN2FmODQ1ZGJhOTVmYjRmNGRlYjJmNDRjIiwidXNlcm5hbWUiOiJsaXhuIn0.hKyNRvPy2IbmrUND0EAt-rNsgIfjJjNVLE2YotGEJ1kM6eV1P7u0YQktk_1JID9LKj4nUskN4TUD46xQ3eNGJA'
       }
     }
     return config
@@ -60,7 +48,7 @@ class HttpRequest {
           request: { responseURL: config.url }
         }
       }
-      addErrorLog(errorInfo)
+      console.error(errorInfo)
       return Promise.reject(error)
     })
   }
